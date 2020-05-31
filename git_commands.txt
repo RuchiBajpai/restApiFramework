@@ -1,3 +1,17 @@
 git init
 git config user.name "Ruchi Bajpai"
 git config user.email "amicabler.ruchi@gmail.com"
+
+git status
+
+git add --all
+
+git commit -m "first commit"
+
+git remote add origin https://RuchiBajpai@github.com/RuchiBajpai/restApiFramework.git
+
+git push -u origin master
+
+
+
+
