@@ -11,41 +11,27 @@ public class StudentControllerApiRestAssured {
     String baseURL = "http://localhost:8081/api/students/";
 
 
-    public int getCall(int studentid) {
+    public Response getCall(int studentid) {
         Response response = get( baseURL+ studentid);
-        int code = response.getStatusCode();
-        String respBody = response.getBody().asString();
-        System.out.println(code);
-        System.out.println(respBody);
-        return code;
+        return response;
 
     }
 
-    public int postCall(String jsonString) throws JSONException {
+    public Response postCall(String jsonString) throws JSONException {
         RequestSpecification request = RestAssured.given();
         request.header("Content-Type", "application/json");
         request.body(jsonString);
         Response response = request.post(baseURL);
-        int code = response.getStatusCode();
-        String respBody = response.getBody().asString();
-        System.out.println(code);
-        System.out.println(respBody);
-        return code;
+        return response;
     }
 
-    public int putCall(String jsonString, int studentid) throws Exception {
-
+    public Response putCall(String jsonString, int studentid) throws Exception {
         RequestSpecification request = RestAssured.given();
-
         request
                 .header("Content-Type", "application/json");
         request.body(jsonString);
         Response response = request.put(baseURL + studentid);
-        int code = response.getStatusCode();
-        String respBody = response.getBody().asString();
-        System.out.println(code);
-        System.out.println(respBody);
-        return code;
+        return response;
 
 
     }
